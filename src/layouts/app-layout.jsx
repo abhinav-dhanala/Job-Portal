@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-const AppLayout= () => {
+const AppLayout = () => {
+  console.log("AppLayout is rendering");
   return (
     <div>
-      AppLayout
-      <Outlet/>
+      <div className="grid-background"></div>
+      <Outlet />
     </div>
-  )
-}
+  );
+};
 
 export default AppLayout;

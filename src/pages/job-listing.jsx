@@ -12,6 +12,7 @@ import { Select,SelectTrigger,SelectValue,SelectGroup,SelectItem,SelectContent,S
 import { State,City,Country } from 'country-state-city';
 
 
+
 const JobListing = () => {
 
   const [searchQuery,setSearchQuery]=useState("");
@@ -69,7 +70,7 @@ const JobListing = () => {
   </SelectTrigger>
   <SelectContent className="w-full">
     <SelectGroup>
-      {State.getStatesOfCountry("IN").map(({ name }) => (
+      {(State.getStatesOfCountry("IN") || []).map(({ name }) => (
         <SelectItem value={name} key={name}>{name}</SelectItem>
       ))}
     </SelectGroup>
@@ -82,7 +83,7 @@ const JobListing = () => {
   </SelectTrigger>
   <SelectContent className="w-full">
     <SelectGroup>
-      {companies.map(({ name,id }) => {
+      {(companies|| []).map(({ name,id }) => {
         return(
           <SelectItem value={id} key={name}>{name}</SelectItem>
         )
